@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.ShipMapper">
+<!--新增船只-->
+<insert id="addShip" parameterType="com.itheima.domain.Ship">
+    insert into ship(id,sin,model,tonnage,net_weight,captain_id,captain_name,status,current_location,berth_time,exit_time)
+    values(#{id},#{sin},#{model},#{tonnage},#{netWeight},#{captainId},#{captainName},#{status},#{currentLocation},#{berthTime},#{exitTime})
+</insert>
+<!--修改船只信息-->
+    <update id="editShip" >
+        update ship
+        <trim prefix="set" suffixOverrides=",">
+            <if test="sin != null" >
+                sin = #{sin},
+            </if>
+            <if test="model != null" >
+                model = #{model},
+            </if>
+            <if test="tonnage != null" >
+                tonnage = #{tonnage},
+            </if>
+            <if test="netWeight != null" >
+                net_weight = #{netWeight},
+            </if>
+            <if test="captainId != null" >
+                captain_id = #{captainId},
+            </if>
+            <if test="captainName != null" >
+                captain_name = #{captainName},
+            </if>
+            <if test="status != null" >
+                status = #{status},
+            </if>
+            <if test="currentLocation != null">
+                current_location=#{currentLocation},
+            </if>
+            <if test="berthTime!=null">
+                berth_time=#{berthTime},
+            </if>
+            <if test="exitTime != null" >
+                exit_time = #{exitTime},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+</mapper>

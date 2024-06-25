@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.RecordMapper">
+    <insert id="addRecord">
+        insert into record(id,ship_model,ship_sin,ship_captain,ship_net_weight,area_iban,berth_time,exit_time,fee)
+        values (#{id},#{shipModel},#{shipSin},#{shipCaptain},#{shipNetWeight},#{areaIban},#{berthTime},#{exitTime},#{fee})
+    </insert>
+</mapper>
